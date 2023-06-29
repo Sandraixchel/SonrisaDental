@@ -3,45 +3,59 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.sandraixchel.SonrisaDental.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 /**
  *
  * @author Sandy
  */
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
 
-  private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    private Integer id;
 
-  private String email;
+    private String name;
 
-  public Integer getId() {
-    return id;
-  }
+    private String username;
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+    private String email;
 
-  public String getName() {
-    return name;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
