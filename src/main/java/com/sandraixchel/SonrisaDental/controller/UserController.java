@@ -4,12 +4,14 @@
  */
 package com.sandraixchel.SonrisaDental.controller;
 
+import com.sandraixchel.SonrisaDental.exception.UserNotFoundException;
 import com.sandraixchel.SonrisaDental.model.User;
 import com.sandraixchel.SonrisaDental.model.UserRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3000") //To connect it with REACT
 public class UserController {
     
      @Autowired
@@ -31,8 +33,14 @@ public class UserController {
         return userRepository.save(newUser);
     }
     
-    @GetMapping("/users")
+    @GetMapping("/users")//To get all users
     List<User> getAllUsers() {
         return (List<User>) userRepository.findAll();
+    }
+    
+    @GetMapping("/user/{id}") //Too get users by id
+    User getUserById(@PathVariable Integer id){
+    return userRepository.findById(id)
+            .orElseThrow(()->new UserNotFoundException(id));
     }
 }
