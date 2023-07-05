@@ -6,7 +6,7 @@ package com.sandraixchel.SonrisaDental.controller;
 
 import com.sandraixchel.SonrisaDental.exception.UserNotFoundException;
 import com.sandraixchel.SonrisaDental.model.User;
-import com.sandraixchel.SonrisaDental.model.UserRepository;
+import com.sandraixchel.SonrisaDental.repository.UserRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

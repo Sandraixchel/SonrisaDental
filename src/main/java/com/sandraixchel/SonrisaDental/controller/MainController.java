@@ -5,7 +5,7 @@
 package com.sandraixchel.SonrisaDental.controller;
 
 import com.sandraixchel.SonrisaDental.model.User;
-import com.sandraixchel.SonrisaDental.model.UserRepository;
+import com.sandraixchel.SonrisaDental.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
