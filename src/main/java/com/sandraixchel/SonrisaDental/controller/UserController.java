@@ -23,10 +23,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Sandy
  */
 
-@RestController
+
+
+@RestController //It eliminates the need for annotating each method with @ResponseBody.
 @CrossOrigin("http://localhost:3000") //To connect it with REACT
 public class UserController {
     
+    /**
+     *  
+     * Spring provides annotation-based auto-wiring by providing @Autowired annotation. It is used to autowire spring bean on setter methods, 
+     * instance variable, and constructor. When we use @Autowired annotation, the spring container auto-wires the bean by matching data-type.
+     */
      @Autowired
     private UserRepository userRepository;
 
