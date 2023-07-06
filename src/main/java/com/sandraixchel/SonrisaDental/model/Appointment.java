@@ -5,9 +5,12 @@
 package com.sandraixchel.SonrisaDental.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
 
 /**
  *
@@ -24,6 +27,9 @@ public class Appointment {
     private String date;
     private String start_time;
     private String end_time;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Patient patient;
 
     public int getId() {
         return id;
