@@ -52,7 +52,9 @@ public class PatientController {
     Patient updatePatient(@RequestBody Patient newPatient, @PathVariable Integer id){
     return patientRepository.findById(id)
             .map(patient -> {
-                patient.setName(newPatient.getName());
+                patient.setFirst_name(newPatient.getFirst_name());
+                patient.setLast_name(newPatient.getLast_name());
+                patient.setDob(newPatient.getDob());
                 patient.setPhone_number(newPatient.getPhone_number());
                 patient.setEmail(newPatient.getEmail());
                 patient.setInsurance_provider(newPatient.getInsurance_provider());

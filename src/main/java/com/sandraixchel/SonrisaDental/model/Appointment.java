@@ -28,6 +28,7 @@ public class Appointment {
     private String start_time;
     private String end_time;
 
+    //This is to represent the relationship between patient and apt, where a patient can have many apt but an apt can only have one px
     @ManyToOne(fetch = FetchType.LAZY)
     private Patient patient;
 

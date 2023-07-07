@@ -4,7 +4,7 @@
  */
 package com.sandraixchel.SonrisaDental.model;
 
-//import static jakarta.persistence.CascadeType.ALL;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +27,11 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    private String name;
+    private String first_name;
+    
+    private String last_name;
+    
+    private String dob;
 
     private String phone_number;
 
@@ -38,17 +42,24 @@ public class Patient {
     private String insurance_number;
     
     
-    
+    //This is to represent the relationship between patient and apt, where a patient can have many apt but an apt can only have one px
     @OneToMany(mappedBy="patient", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Appointment> appointments = new ArrayList<>();
-  
 
-    public Integer getId() {
-        return id;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public String getName() {
-        return name;
+    public String getLast_name() {
+        return last_name;
+    }
+    
+    public String getDob() {
+        return dob;
+    }
+  
+    public Integer getId() {
+        return id;
     }
 
     public String getPhone_number() {
@@ -71,9 +82,18 @@ public class Patient {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+    
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+    
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
