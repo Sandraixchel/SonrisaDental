@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StaffController {
     
     @Autowired
-    private StaffRepository staffRepository;
+    private StaffRepository staffRepository; 
     
     //Request to add a new staff
     @PostMapping("/staff") 

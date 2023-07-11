@@ -7,7 +7,10 @@ package com.sandraixchel.SonrisaDental.controller;
 import com.sandraixchel.SonrisaDental.exception.AppointmentNotFoundException;
 import com.sandraixchel.SonrisaDental.model.Appointment;
 import com.sandraixchel.SonrisaDental.repository.AppointmentRepository;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.sandraixchel.SonrisaDental.services.BookingService;
 
 /**
  *
@@ -30,16 +34,25 @@ public class AppointmentController {
     @Autowired
     private AppointmentRepository appointmentRepository;
     
+    @Autowired
+    private BookingService bookingService;
+    
     //Request to add a new appointment
     @PostMapping("/appointment") 
     Appointment newAppointment(@RequestBody Appointment newAppointment){
         return appointmentRepository.save(newAppointment);
     }
     
-    //Request to view all appointments 
+    //Request to view all booked appointments 
     @GetMapping("/appointments")
     List<Appointment> getAllAppointments(){
         return (List<Appointment>) appointmentRepository.findAll();
+    }
+    
+     //Request to view all appointments available
+    @GetMapping("/available-appointments")
+    Map<LocalDate,ArrayList<String>> listAvailableAppointments(){
+        return bookingService.listAvailableAppointments();
     }
     
     //Request to view appointment by ID
