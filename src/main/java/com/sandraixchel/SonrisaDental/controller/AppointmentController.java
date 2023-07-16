@@ -7,6 +7,7 @@ package com.sandraixchel.SonrisaDental.controller;
 import com.sandraixchel.SonrisaDental.exception.AppointmentNotFoundException;
 import com.sandraixchel.SonrisaDental.exception.DateNotFoundException;
 import com.sandraixchel.SonrisaDental.model.Appointment;
+import com.sandraixchel.SonrisaDental.model.Appointment.AppointmentType;
 import com.sandraixchel.SonrisaDental.repository.AppointmentRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -54,10 +55,10 @@ public class AppointmentController {
     
      //Request to view all appointments available
     @GetMapping("/available-appointments") //API end point *available-appointments*
-    Map<String,ArrayList<String>> listAvailableAppointments(@RequestParam String date){ //This variable will be set by front end, it'll nedd to be called date
+    Map<String,ArrayList<String>> listAvailableAppointments(@RequestParam String date , @RequestParam AppointmentType type){ //This variables will be set by front end, it'll nedd to be called date and type
         
         try{
-        return bookingService.listAvailableAppointments(date);
+        return bookingService.listAvailableAppointments(date,type);
         }catch (ParseException e){
         
             throw new DateNotFoundException (date);

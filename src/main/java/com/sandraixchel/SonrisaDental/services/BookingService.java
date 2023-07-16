@@ -5,6 +5,7 @@
 package com.sandraixchel.SonrisaDental.services;
 
 import com.sandraixchel.SonrisaDental.exception.DateNotFoundException;
+import com.sandraixchel.SonrisaDental.model.Appointment.AppointmentType;
 import com.sandraixchel.SonrisaDental.repository.AppointmentRepository;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -35,7 +36,7 @@ public class BookingService {
     private AppointmentRepository appointmentRepository; //To inject the apt repo, it will be used to find existing apt in the data base
 
     //Lists all available apt slots. Returns a Map where the key is a date and the value is an Array List of available start times on that date
-    public Map<String, ArrayList<String>> listAvailableAppointments(String selected_date) throws ParseException {
+    public Map<String, ArrayList<String>> listAvailableAppointments(String selected_date, AppointmentType type) throws ParseException {
 
         //Create a new Map object, called free slots
         Map<String, ArrayList<String>> freeSlots = new HashMap<>();

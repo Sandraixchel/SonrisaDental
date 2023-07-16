@@ -4,7 +4,10 @@
  */
 package com.sandraixchel.SonrisaDental.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +23,7 @@ import jakarta.persistence.ManyToOne;
 @Entity  // Will auto generate the appointment table in MySQL
 public class Appointment {
     
+    //Create enu with the different apt types
     public enum AppointmentType{
     
         CLEANING,EXAM,EMERGENCY,FILLING,EXTRACTION,VENEERS
@@ -28,7 +32,10 @@ public class Appointment {
     @Id //We need to add this annotation if we want to auto generate the id value 
     @GeneratedValue (strategy = GenerationType.SEQUENCE)
     private int id; 
-    private String type;
+    //Spring notation to save the enum as a string into the data base
+    @Enumerated(EnumType.STRING)
+    @Column(name="type") //Tells the data base in which column the type will need to be added
+    private AppointmentType type;
     private String date;
     private String start_time;
     private String end_time;
@@ -41,7 +48,7 @@ public class Appointment {
         return id;
     }
 
-    public String getType() {
+    public AppointmentType getType() {
         return type;
     }
 
@@ -61,7 +68,7 @@ public class Appointment {
         this.id = id;
     }
 
-    public void setType(String type) {
+    public void setType(AppointmentType type) {
         this.type = type;
     }
 
