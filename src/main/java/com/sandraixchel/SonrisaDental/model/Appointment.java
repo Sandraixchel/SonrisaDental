@@ -20,6 +20,11 @@ import jakarta.persistence.ManyToOne;
 @Entity  // Will auto generate the appointment table in MySQL
 public class Appointment {
     
+    public enum AppointmentType{
+    
+        CLEANING,EXAM,EMERGENCY,FILLING,EXTRACTION,VENEERS
+    }
+    
     @Id //We need to add this annotation if we want to auto generate the id value 
     @GeneratedValue (strategy = GenerationType.SEQUENCE)
     private int id; 

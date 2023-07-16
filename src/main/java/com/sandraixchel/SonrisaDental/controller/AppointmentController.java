@@ -5,6 +5,7 @@
 package com.sandraixchel.SonrisaDental.controller;
 
 import com.sandraixchel.SonrisaDental.exception.AppointmentNotFoundException;
+import com.sandraixchel.SonrisaDental.exception.DateNotFoundException;
 import com.sandraixchel.SonrisaDental.model.Appointment;
 import com.sandraixchel.SonrisaDental.repository.AppointmentRepository;
 import java.time.LocalDate;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.sandraixchel.SonrisaDental.services.BookingService;
+import java.text.ParseException;
+import java.util.Date;
 
 /**
  *
@@ -50,9 +53,15 @@ public class AppointmentController {
     }
     
      //Request to view all appointments available
-    @GetMapping("/available-appointments")
-    Map<LocalDate,ArrayList<String>> listAvailableAppointments(){
-        return bookingService.listAvailableAppointments();
+    @GetMapping("/available-appointments") //API end point *available-appointments*
+    Map<String,ArrayList<String>> listAvailableAppointments(@RequestParam String date){ //This variable will be set by front end, it'll nedd to be called date
+        
+        try{
+        return bookingService.listAvailableAppointments(date);
+        }catch (ParseException e){
+        
+            throw new DateNotFoundException (date);
+        }
     }
     
     //Request to view appointment by ID
