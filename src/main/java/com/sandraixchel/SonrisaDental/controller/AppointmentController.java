@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sandraixchel.SonrisaDental.services.BookingService;
 import java.text.ParseException;
 import java.util.Date;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  *
@@ -33,6 +34,7 @@ import java.util.Date;
  */
 
 @RestController //It eliminates the need for annotating each method with @ResponseBody.
+@CrossOrigin("http://localhost:3000") //To connect it with REACT
 public class AppointmentController {
     
     @Autowired

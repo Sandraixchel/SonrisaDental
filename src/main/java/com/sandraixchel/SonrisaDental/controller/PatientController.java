@@ -9,6 +9,7 @@ import com.sandraixchel.SonrisaDental.model.Patient;
 import com.sandraixchel.SonrisaDental.repository.PatientRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController //It eliminates the need for annotating each method with @ResponseBody.
+@CrossOrigin("http://localhost:3000") //To connect it with REACT
 public class PatientController {
     
     @Autowired
