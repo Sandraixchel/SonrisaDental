@@ -33,6 +33,18 @@ public class BookingService {
 
     private int[] possible_startTimes = {8, 9, 10, 11, 13, 14, 15, 16};
 
+   public static Map<AppointmentType, Integer> appoinment_duration_minutes;
+   static{
+   appoinment_duration_minutes = new HashMap<>();
+   appoinment_duration_minutes.put(AppointmentType.CLEANING , 30);
+   appoinment_duration_minutes.put(AppointmentType.EXAM , 30);
+   appoinment_duration_minutes.put(AppointmentType.EMERGENCY , 60);
+   appoinment_duration_minutes.put(AppointmentType.EXTRACTION , 60);
+   appoinment_duration_minutes.put(AppointmentType.FILLING , 60);
+   appoinment_duration_minutes.put(AppointmentType.VENEERS , 90);
+   appoinment_duration_minutes.put(AppointmentType.CROWN , 120);
+   }
+    
     @Autowired
     private AppointmentRepository appointmentRepository; //To inject the apt repo, it will be used to find existing apt in the data base
 
@@ -96,8 +108,10 @@ public class BookingService {
 
     public boolean timeSlotAvailable(Calendar start_time, AppointmentType type, List<Appointment> bookedAppointments) throws ParseException {
 
+        
+        
         Calendar end_timeApt = (Calendar) start_time.clone();
-        end_timeApt.add(Calendar.HOUR_OF_DAY, 1); // We just want to add an hour to the time of the copy of our calendar
+        end_timeApt.add(Calendar.MINUTE,appoinment_duration_minutes.get(type) ); // We will add to the start_time of the appointment, the corresponding minutes depending on the type of appointment
 
         Calendar start_lunch = (Calendar) start_time.clone();
         start_lunch.set(Calendar.HOUR_OF_DAY, 12);// Set the time when lunch starts at

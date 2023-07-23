@@ -26,7 +26,7 @@ public class Appointment {
     //Create enu with the different apt types
     public enum AppointmentType{
     
-        CLEANING,EXAM,EMERGENCY,FILLING,EXTRACTION,VENEERS
+        CLEANING,EXAM,EMERGENCY,FILLING,EXTRACTION,VENEERS, CROWN
     }
     
     @Id //We need to add this annotation if we want to auto generate the id value 
