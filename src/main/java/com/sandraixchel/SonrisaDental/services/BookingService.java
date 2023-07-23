@@ -112,7 +112,7 @@ public class BookingService {
         end_day.set(Calendar.MINUTE, 00);//set the minutes to 00 
 
         //If end time is between 12:00 and 13:00 pm, return false
-        if (end_timeApt.after(start_lunch) && end_timeApt.before(end_lunch)) {
+        if (!((end_timeApt.before(start_lunch) || end_timeApt.equals(start_lunch)) || (start_time.after(end_lunch) || start_time.equals(end_lunch)))) {
 
             return false;
             //Else return true 
@@ -162,12 +162,27 @@ public class BookingService {
             //We set our calendar with the information that we just converted into a Date object, since .setTime only takes Date objects as parameters 
             currentCalendar2.setTime(formattedDate2);
 
-            //Not Working
-            if ((currentCalendar.before(end_time) && currentCalendar2.after(end_time)) || (currentCalendar.before(start_time) && currentCalendar2.after(start_time))) {
+//            //Not Working
+//            if ((currentCalendar.before(end_time) && currentCalendar2.after(end_time)) || (currentCalendar.before(start_time) && currentCalendar2.after(start_time))) {
+//
+//                return true;
+//
+//            }
 
+            //This means that the appoinment we want ot book can fit before or at the same time the current appointment is starting
+            boolean fitsLeft = (end_time.before(currentCalendar) || end_time.equals(currentCalendar));
+            //This means that the appoinment we want to book can fit after or at the same time that the current appoinment is finishing
+            boolean fitsRight = (start_time.after(currentCalendar2) || start_time.equals(currentCalendar2));
+            //If any of the previous conditions are true, this boolean tells us that an appoinment can be booked before or after a ooked appoinment
+            boolean canSchedule = fitsLeft || fitsRight;
+            //If the appoinment can not be booked, this means its clashing with either the end time or start time of a booked appoinment
+            boolean clashes = !canSchedule;
+
+            //This if statement will continue and wont return anything until it finds a clash, this way the for loop keeps scanning through the ArrayList until it finds a clash
+            if (clashes) {
                 return true;
 
-            }
+            } 
 
         }
 

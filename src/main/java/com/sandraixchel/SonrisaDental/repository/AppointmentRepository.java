@@ -5,6 +5,7 @@
 package com.sandraixchel.SonrisaDental.repository;
 
 import com.sandraixchel.SonrisaDental.model.Appointment;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,5 +15,7 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface AppointmentRepository extends CrudRepository <Appointment, Integer>{
+    
+    List<Appointment> findByDate(String date);
     
 }
