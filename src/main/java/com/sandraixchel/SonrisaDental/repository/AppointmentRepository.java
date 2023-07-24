@@ -16,6 +16,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AppointmentRepository extends CrudRepository <Appointment, Integer>{
     
-    List<Appointment> findByDate(String date);
+    List<Appointment> findByDate(String date);//Queries the Data base to find appointments by a selected date 
+    
+    List<Appointment> findByDateAndStaffId (String date, Integer staff_id);
     
 }

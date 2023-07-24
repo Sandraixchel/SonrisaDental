@@ -43,6 +43,10 @@ public class Appointment {
     //This is to represent the relationship between patient and apt, where a patient can have many apt but an apt can only have one px
     @ManyToOne(fetch = FetchType.LAZY)
     private Patient patient;
+    
+    //This is to represent the relationship between staff and apt, where a staff can have many apt but an apt can only have one staff
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Staff staff;
 
     public int getId() {
         return id;

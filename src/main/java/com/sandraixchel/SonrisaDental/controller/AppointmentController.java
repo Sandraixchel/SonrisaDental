@@ -57,10 +57,10 @@ public class AppointmentController {
     
      //Request to view all appointments available
     @GetMapping("/available-appointments") //API end point *available-appointments*
-    Map<String,ArrayList<String>> listAvailableAppointments(@RequestParam String date , @RequestParam AppointmentType type){ //This variables will be set by front end, it'll nedd to be called date and type
+    Map<String,ArrayList<String>> listAvailableAppointments(@RequestParam String date , @RequestParam AppointmentType type, @RequestParam Integer staff_id){ //This variables will be set by front end, it'll nedd to be called date and type
         
         try{
-        return bookingService.listAvailableAppointments(date,type);
+        return bookingService.listAvailableAppointments(date,type, staff_id);
         }catch (ParseException e){
         
             throw new DateNotFoundException (date);

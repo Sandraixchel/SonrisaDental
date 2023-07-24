@@ -4,10 +4,14 @@
  */
 package com.sandraixchel.SonrisaDental.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -32,6 +36,10 @@ public class Staff {
     private String role;
     
     private String working_days;
+    
+    //This is to represent the relationship between staff and apt, where a staff can have many apt but an apt can only have one staff
+    @OneToMany(mappedBy="staff", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Appointment> appointments = new ArrayList<>();
 
     public Integer getId() {
         return id;
