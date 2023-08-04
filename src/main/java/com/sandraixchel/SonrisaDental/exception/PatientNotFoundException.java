@@ -14,5 +14,11 @@ public class PatientNotFoundException extends RuntimeException {
         
         super ("Could not find the patient with id " + id);
      }
+
+    public PatientNotFoundException(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
     
 }

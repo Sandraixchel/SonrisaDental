@@ -37,6 +37,8 @@ public class Staff {
     
     private String working_days;
     
+    private String password;
+    
     //This is to represent the relationship between staff and apt, where a staff can have many apt but an apt can only have one staff
     @OneToMany(mappedBy="staff", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Appointment> appointments = new ArrayList<>();
@@ -97,6 +99,14 @@ public class Staff {
         this.working_days = working_days;
     }
     
+    public String getPassword(){
+            return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     
+   
     
 }

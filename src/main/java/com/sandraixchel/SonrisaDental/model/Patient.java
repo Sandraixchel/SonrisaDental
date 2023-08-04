@@ -41,9 +41,11 @@ public class Patient {
     
     private String insurance_number;
     
+    private String password;
+    
     
     //This is to represent the relationship between patient and apt, where a patient can have many apt but an apt can only have one px
-    @OneToMany(mappedBy="patient", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany( cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Appointment> appointments = new ArrayList<>();
 
     public String getFirst_name() {
@@ -109,6 +111,14 @@ public class Patient {
 
     public void setInsurance_number(String insurance_number) {
         this.insurance_number = insurance_number;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     

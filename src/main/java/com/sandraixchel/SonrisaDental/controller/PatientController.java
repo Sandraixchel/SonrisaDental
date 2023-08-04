@@ -56,10 +56,13 @@ public class PatientController {
 //    return patientRepository.findByEmail(email)
 //            .orElseThrow(()->new PatientNotFoundException(email));
 //    }
+    
     @PostMapping("/patientsignin")
     Patient signInPatient(@RequestBody Login loginForm) { //Accessing the POST request body sent by the front end login form
+       
         Patient foundPatient = patientRepository.findFirstByEmail(loginForm.getEmail()); //Variable to store the patient which has the email address that the front end sent
-        if (foundPatient.getPassword().equals(loginForm.getPassword())) { //Once the patient is found if the founf patient password is equal to login form passwrod then it can log in, otherwise it will trhoe a incorrect password message
+        
+        if (foundPatient.getPassword().equals(loginForm.getPassword()) && foundPatient.getEmail().equals(loginForm.getEmail())) { //Once the patient is found, if the found patient's password and email are equal to login's form password and email then it can log in, otherwise it will thow a incorrect password message
             return foundPatient;
 
         } else {

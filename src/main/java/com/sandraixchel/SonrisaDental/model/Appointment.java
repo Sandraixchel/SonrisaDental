@@ -4,6 +4,7 @@
  */
 package com.sandraixchel.SonrisaDental.model;
 
+import com.sandraixchel.SonrisaDental.repository.PatientRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -12,6 +13,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 
@@ -22,6 +24,7 @@ import jakarta.persistence.ManyToOne;
 
 @Entity  // Will auto generate the appointment table in MySQL
 public class Appointment {
+    
     
     //Create enu with the different apt types
     public enum AppointmentType{
@@ -41,15 +44,33 @@ public class Appointment {
     private String end_time;
 
     //This is to represent the relationship between patient and apt, where a patient can have many apt but an apt can only have one px
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "patient_id") // marks a column as a join column for an entity association or an element collection
     private Patient patient;
     
     //This is to represent the relationship between staff and apt, where a staff can have many apt but an apt can only have one staff
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "staff_id") // marks a column as a join column for an entity association or an element collection
     private Staff staff;
 
     public int getId() {
         return id;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public AppointmentType getType() {

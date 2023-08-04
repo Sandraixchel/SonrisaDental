@@ -13,4 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface StaffRepository extends CrudRepository <Staff , Integer > {
     
+    Staff findFirstByEmailAndRole(String email, String role); //new function to find a staff object by email address
+    
 }

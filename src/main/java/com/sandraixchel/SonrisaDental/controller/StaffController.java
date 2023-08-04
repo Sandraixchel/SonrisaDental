@@ -4,10 +4,13 @@
  */
 package com.sandraixchel.SonrisaDental.controller;
 
+import com.sandraixchel.SonrisaDental.exception.IncorrectPasswordException;
 import com.sandraixchel.SonrisaDental.exception.StaffNotFoundException;
 import com.sandraixchel.SonrisaDental.model.Staff;
+import com.sandraixchel.SonrisaDental.objects.Login;
 import com.sandraixchel.SonrisaDental.repository.StaffRepository;
 import java.util.List;
+import objects.AdminLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -76,6 +79,21 @@ public class StaffController {
     staffRepository.deleteById(id);
     return "Patient with ID " + id + " has been deleted successfully";
     
+    }
+     
+     @PostMapping("/adminsignin")
+    Staff signInAdmin(@RequestBody AdminLogin loginForm) { //Accessing the POST request body sent by the front end login form
+       
+        Staff foundAdmin = staffRepository.findFirstByEmailAndRole(loginForm.getEmail(), "Manager"); //Variable to store the staff (admin) which has the email address that the front end sent ad matches the role "Manager"
+        
+        if (foundAdmin.getPassword().equals(loginForm.getPassword())) { //Once the staff(admin) is found, if the found staff's password and email are equal to login's form password and email then it can log in, otherwise it will thow a incorrect password message
+            return foundAdmin;
+
+        } else {
+
+            throw new IncorrectPasswordException();
+        }
+
     }
     
     
