@@ -4,7 +4,9 @@
  */
 package com.sandraixchel.SonrisaDental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sandraixchel.SonrisaDental.repository.PatientRepository;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,6 +17,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.annotations.ColumnDefault;
 
 
@@ -49,6 +54,7 @@ public class Appointment {
     private String date;
     private String start_time;
     private String end_time;
+    
     private int cost;
     
     @Enumerated(EnumType.STRING)
@@ -65,6 +71,11 @@ public class Appointment {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "staff_id") // marks a column as a join column for an entity association or an element collection
     private Staff staff;
+    
+    @JsonIgnoreProperties("appointment")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="appointment", cascade=CascadeType.ALL, orphanRemoval=true)  
+    private List<ExtraItem> extra_items = new ArrayList<>();
+    
 
     public int getId() {
         return id;
@@ -136,6 +147,14 @@ public class Appointment {
 
     public void setStatus(AppointmentStatus status) {
         this.status = status;
+    }
+
+    public List<ExtraItem> getExtra_items() {
+        return extra_items;
+    }
+
+    public void setExtra_items(List<ExtraItem> extra_items) {
+        this.extra_items = extra_items;
     }
     
     

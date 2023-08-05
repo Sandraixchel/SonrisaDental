@@ -40,7 +40,7 @@ public class Staff {
     private String password;
     
     //This is to represent the relationship between staff and apt, where a staff can have many apt but an apt can only have one staff
-    @OneToMany(mappedBy="staff", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy="staff", cascade=CascadeType.ALL, orphanRemoval=true) 
     private List<Appointment> appointments = new ArrayList<>();
 
     public Integer getId() {
