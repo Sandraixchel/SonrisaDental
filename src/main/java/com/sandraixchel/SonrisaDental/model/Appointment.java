@@ -15,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import org.hibernate.annotations.ColumnDefault;
 
 
 /**
@@ -32,6 +33,12 @@ public class Appointment {
         CLEANING,EXAM,EMERGENCY,FILLING,EXTRACTION,VENEERS, CROWN
     }
     
+    public enum AppointmentStatus{
+    
+        BOOKED,IN_TREATMENT,LAB_WORK_SENT,LAB_WORK_ARRIVED,CANCELLED,RESCHEDULED,PAID
+        
+    }
+    
     @Id //We need to add this annotation if we want to auto generate the id value 
     @GeneratedValue (strategy = GenerationType.SEQUENCE)
     private int id; 
@@ -42,6 +49,12 @@ public class Appointment {
     private String date;
     private String start_time;
     private String end_time;
+    private int cost;
+    
+    @Enumerated(EnumType.STRING)
+    //@ColumnDefault("'BOOKED'")
+    @Column(name="status")
+    private AppointmentStatus status = AppointmentStatus.BOOKED;//Whenever an appointment is created, the satus will be BOOKED by default 
 
     //This is to represent the relationship between patient and apt, where a patient can have many apt but an apt can only have one px
     @ManyToOne(fetch = FetchType.EAGER)
@@ -107,6 +120,22 @@ public class Appointment {
 
     public void setEnd_time(String end_time) {
         this.end_time = end_time;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public AppointmentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AppointmentStatus status) {
+        this.status = status;
     }
     
     
