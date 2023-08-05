@@ -45,6 +45,12 @@ public class StaffController {
         return (List<Staff>) staffRepository.findAll();
     }
     
+     //Request to view all Dentist (Staff wich role matches Dentist)
+    @GetMapping("/alldentists")
+    List<Staff> findByRole(){
+        return (List<Staff>) staffRepository.findByRole("Dentist");
+    }
+    
     //Request to view staff by ID
     @GetMapping("/staff/{id}")
     Staff getStaffById(@PathVariable Integer id){

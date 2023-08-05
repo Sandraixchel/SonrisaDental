@@ -60,7 +60,7 @@ public class AppointmentController {
         return (List<Appointment>) appointmentRepository.findAll();
     }
 
-    //Request to view all appointments available
+    //Request to view all  available appointments for an specific date, type and staff
     @GetMapping("/available-appointments") //API end point *available-appointments*
      ArrayList<Map<String, String>>  listAvailableAppointments(@RequestParam String date, @RequestParam AppointmentType type, @RequestParam Integer staff_id) { //This variables will be set by front end, it'll nedd to be called date and type
 

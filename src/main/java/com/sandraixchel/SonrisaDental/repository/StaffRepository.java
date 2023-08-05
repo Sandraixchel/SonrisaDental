@@ -5,6 +5,7 @@
 package com.sandraixchel.SonrisaDental.repository;
 
 import com.sandraixchel.SonrisaDental.model.Staff;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,5 +15,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface StaffRepository extends CrudRepository <Staff , Integer > {
     
     Staff findFirstByEmailAndRole(String email, String role); //new function to find a staff object by email address
+    
+    List <Staff> findByRole(String role); //new function to find a (satff) dentist object by role
     
 }
