@@ -88,6 +88,10 @@ public class AppointmentController {
                     appointment.setDate(newAppointment.getDate());
                     appointment.setStart_time(newAppointment.getStart_time());
                     appointment.setEnd_time(newAppointment.getEnd_time());
+                    appointment.setCost(newAppointment.getCost());
+                    appointment.setStatus(newAppointment.getStatus());
+                    appointment.setPatient(newAppointment.getPatient());
+                    appointment.setStaff(newAppointment.getStaff());
                     return appointmentRepository.save(appointment);
 
                 }).orElseThrow(() -> new AppointmentNotFoundException(id));

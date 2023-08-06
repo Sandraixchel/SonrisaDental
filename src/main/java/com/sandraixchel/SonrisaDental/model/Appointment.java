@@ -73,7 +73,7 @@ public class Appointment {
     private Staff staff;
     
     @JsonIgnoreProperties("appointment")
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="appointment", cascade=CascadeType.ALL, orphanRemoval=true)  
+    @OneToMany(mappedBy="appointment", cascade=CascadeType.ALL, orphanRemoval=true)  
     private List<ExtraItem> extra_items = new ArrayList<>();
     
 
