@@ -46,7 +46,7 @@ CREATE TABLE `appointment` (
 
 LOCK TABLES `appointment` WRITE;
 /*!40000 ALTER TABLE `appointment` DISABLE KEYS */;
-INSERT INTO `appointment` VALUES (852,'2023-08-09','12:00','10:30','CROWN',104,3,250,'BOOKED'),(902,'2023-08-11','11:30','10:30','EMERGENCY',102,2,100,'BOOKED'),(952,'2023-08-14','12:00','11:30','CLEANING',102,2,80,'BOOKED'),(1002,'2023-08-14','14:00','13:30','CLEANING',102,2,80,'BOOKED'),(1052,'2023-08-15','14:00','13:30','EXAM',102,2,50,'CANCELLED'),(1202,'2023-08-07','11:30','10:30','EXTRACTION',302,2,150,'BOOKED'),(1203,'2023-08-17','12:00','11:00','EXTRACTION',302,2,150,'BOOKED'),(1204,'2023-08-17','15:30','14:30','EXTRACTION',302,2,150,'BOOKED'),(1205,'2023-08-21','12:00','11:00','EXTRACTION',302,2,150,'BOOKED'),(1206,'2023-08-22','12:00','11:30','CLEANING',302,2,80,'BOOKED'),(1207,'2023-08-07','17:00','15:00','CROWN',302,3,900,'BOOKED'),(1208,'2023-08-31','14:00','13:30','CLEANING',302,102,80,'BOOKED'),(1209,'2023-08-24','12:00','11:30','CLEANING',302,3,80,'BOOKED'),(1210,'2023-08-30','12:00','11:30','CLEANING',302,2,80,'BOOKED'),(1211,'2023-08-07','13:30','13:00','CLEANING',302,3,80,'BOOKED'),(1212,'2023-08-07','09:30','09:00','CLEANING',302,3,80,'BOOKED'),(1213,'2023-08-18','11:30','11:00','CLEANING',302,3,80,'BOOKED'),(1214,'2023-08-23','11:30','11:00','CLEANING',302,102,80,'BOOKED'),(1215,'2023-08-07','10:30','10:00','CLEANING',302,2,80,'BOOKED'),(1216,'2023-08-07','10:30','10:00','CLEANING',302,3,80,'BOOKED'),(1252,'2023-08-24','10:30','09:30','EMERGENCY',302,2,100,'BOOKED'),(1302,'2023-08-08','09:00','08:30','CLEANING',302,2,80,'BOOKED'),(1303,'2023-08-10','12:00','11:00','EXTRACTION',302,2,150,'BOOKED');
+INSERT INTO `appointment` VALUES (852,'2023-08-14','12:00','10:30','CROWN',104,3,250,'IN_TREATMENT'),(902,'2023-08-11','11:30','10:30','EMERGENCY',102,2,100,'BOOKED'),(952,'2023-08-14','12:00','11:30','CLEANING',102,2,80,'BOOKED'),(1002,'2023-08-14','14:00','13:30','CLEANING',102,2,80,'BOOKED'),(1052,'2023-08-15','14:00','13:30','EXAM',102,2,50,'CANCELLED'),(1202,'2023-08-07','11:30','10:30','EXTRACTION',302,2,150,'BOOKED'),(1203,'2023-08-17','12:00','11:00','EXTRACTION',302,2,150,'BOOKED'),(1204,'2023-08-17','15:30','14:30','EXTRACTION',302,2,150,'BOOKED'),(1205,'2023-08-21','12:00','11:00','EXTRACTION',302,2,150,'BOOKED'),(1206,'2023-08-22','12:00','11:30','CLEANING',302,2,80,'BOOKED'),(1207,'2023-08-07','17:00','15:00','CROWN',302,3,900,'BOOKED'),(1208,'2023-08-31','14:00','13:30','CLEANING',302,102,80,'BOOKED'),(1209,'2023-08-24','12:00','11:30','CLEANING',302,3,80,'BOOKED'),(1210,'2023-08-30','12:00','11:30','CLEANING',302,2,80,'BOOKED'),(1211,'2023-08-07','13:30','13:00','CLEANING',302,3,80,'BOOKED'),(1212,'2023-08-07','09:30','09:00','CLEANING',302,3,80,'BOOKED'),(1213,'2023-08-18','11:30','11:00','CLEANING',302,3,80,'BOOKED'),(1214,'2023-08-23','11:30','11:00','CLEANING',302,102,80,'BOOKED'),(1215,'2023-08-07','10:30','10:00','CLEANING',302,2,80,'BOOKED'),(1216,'2023-08-07','10:30','10:00','CLEANING',302,3,80,'BOOKED'),(1252,'2023-08-24','10:30','09:30','EMERGENCY',302,2,100,'BOOKED'),(1302,'2023-08-08','09:00','08:30','CLEANING',302,2,80,'BOOKED'),(1303,'2023-08-10','12:00','11:00','EXTRACTION',302,2,150,'BOOKED'),(1352,'2023-08-18','09:00','08:00','FILLING',302,2,170,'BOOKED');
 /*!40000 ALTER TABLE `appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +68,7 @@ CREATE TABLE `appointment_seq` (
 
 LOCK TABLES `appointment_seq` WRITE;
 /*!40000 ALTER TABLE `appointment_seq` DISABLE KEYS */;
-INSERT INTO `appointment_seq` VALUES (1401);
+INSERT INTO `appointment_seq` VALUES (1451);
 /*!40000 ALTER TABLE `appointment_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +149,7 @@ CREATE TABLE `patient` (
 
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
-INSERT INTO `patient` VALUES (102,'maria@gmail.com','R324664','VHI','083554264','15/05/171','Maria',' Acosta',NULL),(104,'conor@gmail.com','OP38383','PRSI','0834552287','08/04/1994','Conor','Maguire',NULL),(152,'nellmag@hotmail.com','3255463','Dental Care','0842355655','21/12/1965','Nell','Murphy',NULL),(202,'diego@hotmail.com','4313525','VHI','0834556697','03/09/2003','Diego','Acosta',NULL),(252,'mgsgd@hotmail.com','3255463','PRSI','0834556697','21/12/1965','Conor','Murphy','test1'),(302,'patient@gmail.com','4313525','PRSI','0834556697','08/04/1994','Conor','Maguire','patient'),(352,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'luanaceleste'),(353,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(354,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(355,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(356,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(402,'ciaran@gmail.com','2538953725B','VHI','086557392','16/08/1996','Ciaran','Maguire','password'),(403,'gustavo@gmail.com','53y3y','PRSI','43t34y','15/08/2000','Gustavo','Lopez','password'),(404,'irlandasan1923@gmail.com',NULL,NULL,NULL,NULL,'Sandra',NULL,'password'),(405,'julia@gmail.com',NULL,NULL,NULL,NULL,'Julia',NULL,'password');
+INSERT INTO `patient` VALUES (102,'maria@gmail.com','R324664','VHI','083554264','15/05/171','Maria',' Acosta','Acosta'),(104,'conor@gmail.com','OP38383','PRSI','0834552287','08/04/1994','Conor','Maguire','Maguire'),(152,'nellmag@hotmail.com','3255463','Dental Care','0842355655','21/12/1965','Nell','Murphy','Murphy'),(202,'diego@hotmail.com','4313525','VHI','0834556697','03/09/2003','Diego','Acosta','DiegoAcosta'),(252,'mgsgd@hotmail.com','3255463','PRSI','0834556697','21/12/1965','Conor','Murphy','ConorMurphy'),(302,'patient@gmail.com','4313525','PRSI','0834556697','08/04/1994','Conor','Maguire','patient'),(352,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'luanaceleste'),(353,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(354,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(355,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(356,'luana@gmail.com',NULL,NULL,NULL,NULL,'Luana',NULL,'password'),(402,'ciaran@gmail.com','2538953725B','VHI','086557392','16/08/1996','Ciaran','Maguire','password'),(403,'gustavo@gmail.com','53y3y','PRSI','43t34y','15/08/2000','Gustavo','Lopez','password'),(404,'irlandasan1923@gmail.com',NULL,NULL,NULL,NULL,'Sandra',NULL,'password'),(405,'julia@gmail.com',NULL,NULL,NULL,NULL,'Julia',NULL,'password'),(452,'new@gmail.com',NULL,NULL,NULL,NULL,'New',NULL,'password');
 /*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,7 @@ CREATE TABLE `patient_seq` (
 
 LOCK TABLES `patient_seq` WRITE;
 /*!40000 ALTER TABLE `patient_seq` DISABLE KEYS */;
-INSERT INTO `patient_seq` VALUES (501);
+INSERT INTO `patient_seq` VALUES (551);
 /*!40000 ALTER TABLE `patient_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +227,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES (1,'practiceManager@sonrisadental.ie','Gustavo','Cova','0834556678','Manager','sonrisa123',NULL),(2,'sandra_lopez@gmail.com','Sandra',' López','0834556678','Dentist',NULL,'Graduated from Universidad Veracruzana, México in 2017. Dr. López specialises in Cosmetic Dentistry and Minimal Invasive Dentistry '),(3,'roxana_calin@gmail.com','Roxana','Calin','0833440096','Dentist','roxanacalin','Graduated from the University of Medicine and Pharmacy Craiova, Romania in 2014. Dr. Calin specialises in Prosthodontics '),(102,'walter_white@gmail.com','Walter','White','0834554628','Dentist',NULL,'Graduated from the University of Arizona, USA in 2006. Dr. White specialises in Oral Surgery and Sedation');
+INSERT INTO `staff` VALUES (1,'practiceManager@sonrisadental.ie','Gustavo','Cova','0834556678','Manager','sonrisa123',NULL),(2,'sandra_lopez@gmail.com','Sandra',' López','0834556678','Dentist','sandraLopez','Graduated from Universidad Veracruzana, México in 2017. Dr. López specialises in Cosmetic Dentistry and Minimal Invasive Dentistry '),(3,'roxana_calin@gmail.com','Roxana','Calin','0833440096','Dentist','roxanacalin','Graduated from the University of Medicine and Pharmacy Craiova, Romania in 2014. Dr. Calin specialises in Prosthodontics '),(102,'walter_white@gmail.com','Walter','White','0834554628','Dentist','walterWhite','Graduated from the University of Arizona, USA in 2006. Dr. White specialises in Oral Surgery and Sedation'),(152,'luana@gmail.com','Luana','Celeste','0834556697','Dental Nurse','CelesteLu','');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,7 +249,7 @@ CREATE TABLE `staff_seq` (
 
 LOCK TABLES `staff_seq` WRITE;
 /*!40000 ALTER TABLE `staff_seq` DISABLE KEYS */;
-INSERT INTO `staff_seq` VALUES (201);
+INSERT INTO `staff_seq` VALUES (251);
 /*!40000 ALTER TABLE `staff_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,4 +310,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-12 16:46:34
+-- Dump completed on 2023-08-12 23:36:19
