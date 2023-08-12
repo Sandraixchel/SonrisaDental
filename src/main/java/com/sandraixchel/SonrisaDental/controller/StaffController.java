@@ -68,7 +68,7 @@ public class StaffController {
                 staff.setPhone_number(newStaff.getPhone_number());
                 staff.setEmail(newStaff.getEmail());
                 staff.setRole(newStaff.getRole());
-                staff.setWorking_days(newStaff.getWorking_days());
+                staff.setDescription(newStaff.getDescription());
                 return staffRepository.save(staff);
                 
             }).orElseThrow(()->new StaffNotFoundException(id));

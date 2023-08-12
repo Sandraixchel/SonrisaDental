@@ -78,6 +78,13 @@ public class AppointmentController {
         return appointmentRepository.findById(id)
                 .orElseThrow(() -> new AppointmentNotFoundException(id));
     }
+    
+     //Request to view booked appointment by patient ID
+    @GetMapping("/appointment_patient/{patient_id}")
+    List<Appointment> getAppointmentByPatientId(@PathVariable Integer patient_id) {
+        return (List<Appointment>) appointmentRepository.findByPatientId(patient_id);
+                
+    }
 
     //Request to edit a booked appointment
     @PutMapping("/appointment/{id}")

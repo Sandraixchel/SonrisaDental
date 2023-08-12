@@ -35,7 +35,7 @@ public class Staff {
     
     private String role;
     
-    private String working_days;
+    private String description;
     
     private String password;
     
@@ -91,12 +91,12 @@ public class Staff {
         this.role = role;
     }
 
-    public String getWorking_days() {
-        return working_days;
+    public String getDescription() {
+        return description;
     }
 
-    public void setWorking_days(String working_days) {
-        this.working_days = working_days;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     public String getPassword(){

@@ -20,4 +20,6 @@ public interface AppointmentRepository extends CrudRepository <Appointment, Inte
     
     List<Appointment> findByDateAndStaffId (String date, Integer staff_id);
     
+    List<Appointment> findByPatientId (Integer patient_id);
+    
 }
