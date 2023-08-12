@@ -67,6 +67,7 @@ public class StaffController {
                 staff.setLast_name(newStaff.getLast_name());
                 staff.setPhone_number(newStaff.getPhone_number());
                 staff.setEmail(newStaff.getEmail());
+                staff.setPassword(newStaff.getPassword());
                 staff.setRole(newStaff.getRole());
                 staff.setDescription(newStaff.getDescription());
                 return staffRepository.save(staff);
